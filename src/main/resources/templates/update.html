@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <title>Title</title>
+    <style>
+        form{
+<!--              background-color:linear-gradient(120deg, green ,yellow)!important;-->
+                  background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        }
+    </style>
+</head>
+<body>
+<div class="container my-3">
+    <div class="row justify-content-center">
+        <div class="col-6 p-3 bg-warning" style="box-shadow:0px 0px 5px white;">
+            <h4 class="text-center bg-danger text-white" style>Update Student Information</h4>
+            <div class="">
+                <form class="p-4 bg-white" action="#" th:action="@{/save}" th:object="${student}" method="POST">
+                    <div>
+                        <span>name</span>
+                        <input type="text" th:field="*{name}" class="w-100" placeholder="enter name">
+                    </div>
+                    <div>
+                        <span>address</span>
+                        <input type="text" th:field="*{address}" class="w-100" placeholder="enter address">
+                    </div>
+                    <div>
+                        <span>age</span>
+                        <input type="text" th:field="*{age}" class="w-100" placeholder="enter roll">
+                    </div>
+                    <div>
+                        <span>className</span>
+                        <input type="text" th:field="*{className}" class="w-100" placeholder="enter age">
+                    </div>
+                    <div>
+                        <span>fees</span>
+                        <input type="text" th:field="*{fees}" class="w-100" placeholder="enter fees">
+                    </div>
+                    <div>
+                        <span>mobile no.</span>
+                        <input type="text" th:field="*{mobileNumber}" class="w-100" placeholder="enter mobile number">
+                    </div>
+                    <div class="my-3">
+                        <input type="submit" class="w-100 btn btn-lg bg-success" value="add">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
