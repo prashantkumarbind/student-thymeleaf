@@ -11,9 +11,9 @@ public class Student {
         String name;
         String address;
 
-        @GeneratedValue(strategy = GenerationType.UUID)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Id
-        String roll;
+        int roll;
         float fees;
         int age;
         String className;
@@ -35,11 +35,11 @@ public class Student {
         this.address = address;
     }
 
-    public String getRoll() {
+    public int getRoll() {
         return roll;
     }
 
-    public void setRoll(String roll) {
+    public void setRoll(int roll) {
         this.roll = roll;
     }
 

@@ -8,9 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-@Controller
+@Controller //controller return only view(html,jsp) not view
 public class StudentController {
         public static String nameValue;
+        public static int rollValue;
         @Autowired
         StudentService sService;
 
@@ -34,7 +35,7 @@ public class StudentController {
         }
 
         @GetMapping("update/{roll}")
-        public String update(@PathVariable("roll") String roll,Model model){
+        public String update(@PathVariable("roll") int roll,Model model){
                 Student student = new Student();
                 student = sService.getById(roll);
                 model.addAttribute("student", student);
@@ -48,18 +49,41 @@ public class StudentController {
                 return "byname.html";
         }
 
-        @PostMapping("/getnameobject")
+        @GetMapping("/getnameobject")
         public String getName(@ModelAttribute("student") Student student){
                 nameValue = student.getName();
                 return "redirect:/searchbyname";
         }
         @GetMapping("/searchbyname")
         public String searchByName(Model model){
-                Student student = new Student();
                 model.addAttribute("student", sService.getByName(nameValue));
                 return "searchbyname.html";
         }
-        /*  end check my name========================*/
+
+        /*Serch By roll concept===========**===============**==============**============================*/
+
+
+        @GetMapping("/byroll")
+        public String byRoll(Model model){
+               Student std = new Student();
+               model.addAttribute("student", std);
+               return "byname.html";
+        }
+
+        @GetMapping("/getrollobject")
+        public String getStudentObject(@ModelAttribute("student") Student student){
+               rollValue=student.getRoll();
+               return "redirect:/searchbyroll";
+        }
+
+        @GetMapping("/searchbyroll")
+        public String searchByRoll(Model model){
+               Student student = sService.getById(rollValue);
+               model.addAttribute("student",student);
+               return "searchbyname.html";
+
+        }
+        /*  end testing point my name========================*/
         @ResponseBody //response body only return data
         @GetMapping("/testing/{name}")
         public String testing(@PathVariable("name") String name){

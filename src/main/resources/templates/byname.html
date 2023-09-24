@@ -11,9 +11,23 @@
         <div class="row justify-content-center">
         <div class="col-6">
             <div class="">
-                <form class="p-4 bg-white" action="#" th:action="@{/getnameobject}" th:object="${student}" method="POST">
+                <form class="p-4 bg-white" action="#" th:action="@{/getrollobject}" th:object="${student}" method="get">
                     <div>
-                        <span>name</span>
+                        <span>Search by roll</span>
+                        <input type="text" th:field="*{roll}" class="w-100" placeholder="enter roll">
+                    </div>
+                    <div class="my-2">
+                        <input class="btn bg-success w-100" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+            <!--******************************************************-->
+        <div class="col-6">
+            <div class="">
+                <form class="p-4 bg-white" action="#" th:action="@{/getnameobject}" th:object="${student}" method="get">
+                    <div>
+                        <span>Search by name</span>
                         <input type="text" th:field="*{name}" class="w-100" placeholder="enter name">
                     </div>
                     <div class="my-2">

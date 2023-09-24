@@ -10,6 +10,5 @@ public class StudentmanagementthymeleafApplication {
 		System.out.println("spring boot---------------------------------------");
 		SpringApplication.run(StudentmanagementthymeleafApplication.class, args);
 		System.out.println("Spring Boot Started=== ==== === === === === === === === ===");
-
 	}
 }

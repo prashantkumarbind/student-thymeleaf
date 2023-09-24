@@ -48,8 +48,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student getById(String roll) {
-        Student s;
+    public Student getById(int roll) {
+         Student s=null;
         Optional<Student> opt = sd.findById(roll);
         if(opt.isPresent())
         {

@@ -12,5 +12,5 @@ public interface StudentService {
         public void delete(String roll);
         public List<Student> getByName(String name);
         public List<Student> getByClass();
-        public Student getById(String roll);
+        public Student getById(int roll);
 }
